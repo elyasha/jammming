@@ -3,9 +3,9 @@ import React, { Component } from "react";
 class Track extends Component {
   renderAction() {
     if (this.props.isRemoval) {
-      return <button>-</button>;
+      return "-";
     } else {
-      return <button>+</button>;
+      return "+";
     }
   }
 
