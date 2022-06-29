@@ -20,6 +20,15 @@ class App extends React.Component {
       {id: 3, name: "name 3", artist: 'artist 3', album: 'album 3'},
     ],
     }
+    this.addTrack = this.addTrack.bind(this);
+  }
+
+  addTrack(track){
+    // Check if track is in the playlist
+    const alreadyExistsTrack = this.state.playlistTracks.find((t) => t.id === track.id)
+    if (!alreadyExistsTrack) {
+      this.state.playlistTracks = [this.state.playlistTracks, track]
+    }
   }
 
   render() {
@@ -32,7 +41,7 @@ class App extends React.Component {
         <div className="App">
           <SearchBar />
           <div className="App-playlist">
-            <SearchResults searchResults={this.state.searchResults} />
+            <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack} />
             <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks} />
           </div>
         </div>
