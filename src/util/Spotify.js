@@ -1,6 +1,6 @@
 let accessToken;
-const CLIENT_ID = 'secret_here'
-const REDIRECT_URI = process.env.REDIRECT_URI || "http://localhost:3000/";
+const CLIENT_ID = ''
+const REDIRECT_URI = process.env.REDIRECT_URI || "http://jammming_elyasha.surge.sh/";
 
 const Spotify = {
   getAccessToken: function () {
