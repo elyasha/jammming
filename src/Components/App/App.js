@@ -9,7 +9,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       searchResults: [
-      {id: 1, name: "name 1", artist: 'artist 1', album: 'album 1'},
+      {id: 4, name: "name 4", artist: 'artist 1', album: 'album 1'},
       {id: 2, name: "name 2", artist: 'artist 2', album: 'album 2'},
       {id: 3, name: "name 3", artist: 'artist 3', album: 'album 3'},
     ],
@@ -24,10 +24,12 @@ class App extends React.Component {
   }
 
   addTrack(track){
+    console.log('track in addTrack logic')
+    console.log(track)
     // Check if track is in the playlist
     const alreadyExistsTrack = this.state.playlistTracks.find((t) => t.id === track.id)
     if (!alreadyExistsTrack) {
-      this.state.playlistTracks = [this.state.playlistTracks, track]
+      this.setState({ ...this.state, playlistTracks: [...this.state.playlistTracks, track]})
     }
   }
 
